@@ -125,7 +125,6 @@
         data.append('address', register_form.elements['address'].value);
         data.append('pass', register_form.elements['pass'].value);
         data.append('cpass', register_form.elements['cpass'].value);
-        data.append('profile', register_form.elements['profile'].files[0]);
         data.append('register','');
 
         var myModal = document.getElementById('registerModal');
@@ -154,12 +153,6 @@
             }
             else if(this.responseText == 'phone_already'){
                 alert('error',"Phone number is already used!");
-            }
-            else if(this.responseText == 'inv_img'){
-                alert('error',"Only JPG, WEBP & PNG images are allowed!");
-            }
-            else if(this.responseText == 'upd_failed'){
-                alert('error',"Image upload failed!");
             }
             else if(this.responseText == 'ins_failed'){
                 alert('error',"Registration failed! Server down!");
