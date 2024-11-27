@@ -251,10 +251,6 @@
                                 <input name="cpass" id="cpass" type="password" class="form-control shadow-none" required>
                                 <div id="cpassFeedback" class="invalid-feedback">Passwords do not match.</div>
                                 </div>
-                                <div class="col-md-6 ps-0 mb-4">
-                                    <label class="form-label">Picture</label>
-                                    <input name="profile" type="file" accept=".jpg, .jpeg, .png, .webp" class="form-control shadow-none">
-                                </div>
                             </div>
                         </div>
                         <div class="text-center">
