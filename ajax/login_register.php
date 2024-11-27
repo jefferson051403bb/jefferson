@@ -11,9 +11,9 @@ if (isset($_POST['register'])) {
     !preg_match('/[0-9]/', $data['pass']) || 
     !preg_match('/[!@#\$%^&*()_+\-=\[\]{};\':"\\|,.<>\/?]/', $data['pass']) || 
     strlen($data['pass']) < 8 || strlen($data['pass']) > 16) {
-    echo 'pass_invalid';
-    exit;
-}
+        echo 'pass_invalid';
+        exit;
+    }
 
     // Check phone number format
     if (strlen($data['phonenum']) !== 12 || substr($data['phonenum'], 0, 2) !== '63') {
@@ -46,32 +46,18 @@ if (isset($_POST['register'])) {
         exit;
     }
 
-    // Upload image
-    $img = uploadUserImage($_FILES['profile']);
-
-    if ($img == 'inv_img') {
-        error_log('Invalid image format');
-        echo 'inv_img';
-        exit;
-    } else if ($img == 'upd_failed') {
-        error_log('Image upload failed');
-        echo 'upd_failed';
-        exit;
-    }
-
     // Hash password
     $enc_pass = password_hash($data['pass'], PASSWORD_BCRYPT);
 
-    // Insert user into database
-    $query = "INSERT INTO `user_cred`(`name`, `email`, `dob`, `phonenum`, `address`, `password`, `profile`) VALUES (?,?,?,?,?,?,?)";
-    $values = [$data['name'], $data['email'], $data['dob'], $data['phonenum'], $data['address'], $enc_pass, $img];
+    // Insert user into database (without image)
+    $query = "INSERT INTO `user_cred`(`name`, `email`, `dob`, `phonenum`, `address`, `password`) VALUES (?,?,?,?,?,?)";
+    $values = [$data['name'], $data['email'], $data['dob'], $data['phonenum'], $data['address'], $enc_pass];
 
-    if (insert($query, $values, 'sssssss')) {
+    if (insert($query, $values, 'ssssss')) {
         echo 1; // Registration successful
 
         // Send SMS notification
         sendSmsNotification($data['phonenum']);
-
     } else {
         echo 'ins_failed'; // Registration failed
         error_log('Database insert failed: ' . mysqli_error($conn)); // Log SQL error
@@ -162,4 +148,4 @@ if (isset($_POST['login'])) {
         }
     }
 }
-?>
+?> 
