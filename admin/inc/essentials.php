@@ -2,14 +2,15 @@
 
     //FRONT END PURPOSE
 
-    define('SITE_URL','http://127.0.0.1/gymko/');
-    define('ABOUT_IMG_PATH',SITE_URL.'images/about/');
-    define('CAROUSEL_IMG_PATH',SITE_URL.'images/carousel/');
-    define('TRAINORS_IMG_PATH',SITE_URL.'images/trainors/');
+define('SITE_URL', 'https://jefferson051403bb.github.io/jefferson/');
+define('ABOUT_IMG_PATH', SITE_URL.'images/about/');
+define('CAROUSEL_IMG_PATH', SITE_URL.'images/carousel/');
+define('TRAINORS_IMG_PATH', SITE_URL.'images/trainors/');
+
     
     //BACK END PURPOSE
 
-    define('UPLOAD_IMAGE_PATH',$_SERVER['DOCUMENT_ROOT'].'/gymko/images/');
+    define('UPLOAD_IMAGE_PATH',$_SERVER['DOCUMENT_ROOT'].'/jefferson/images/');
     define('ABOUT_FOLDER','about/');
     define('CAROUSEL_FOLDER','carousel/');
     define('USERS_FOLDER','users/');
